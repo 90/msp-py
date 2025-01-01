@@ -93,9 +93,8 @@ def calculate_checksum(arguments: Union[int, str, bool, bytes, List[Union[int, s
         result = ""
         if isinstance(obj, dict):
             for key in sorted(obj.keys()):
-                if key not in checked_objects:
-                    result += from_object(obj[key])
-                    checked_objects[key] = True
+                result += from_object(obj[key])
+                checked_objects[key] = True
         else:
             result += from_object(obj)
         return result
